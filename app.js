@@ -2,12 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const config = require("config");
 const chalk = require("chalk");
-const cors = require("cors");
+const corsMiddleWare = require("./middleware/cors.middleware");
 
 const path = require("path");
 const initDataBase = require("./startUp/initDataBase");
 const app = express();
-app.use(cors());
+app.use(corsMiddleWare);
 
 const routes = require("./routes");
 app.use(express.json());
