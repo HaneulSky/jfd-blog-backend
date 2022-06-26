@@ -15,7 +15,7 @@ app.use(express.urlencoded({extended: false}));
 
 app.use("/api", routes);
 
-const PORT = config.get("port") ?? 5000;
+const PORT = config.get("port") || 3000;
 
 // if(process.env.NODE_ENV==="production"){
 //     console.log("Production")
@@ -40,7 +40,7 @@ async function start() {
         });
         await mongoose.connect(config.get("mongoUri"));
         console.log(chalk.green("MongoDB connected."));
-        app.listen(5000, () => console.log(chalk.green(`Server has been started on port ${PORT} `)));
+        app.listen(3000, () => console.log(chalk.green(`Server has been started on port ${PORT} `)));
     } catch (e) {
         console.log(chalk.red(e.message));
         process.exit(1);
