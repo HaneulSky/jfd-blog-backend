@@ -5,7 +5,7 @@ const articleMock = require("../mock/articles.json");
 module.exports = async () => {
     const articles = await Article.find();
     if (articles.length !== articleMock.length) {
-        createInitialEntity(Article, articleMock);
+        await createInitialEntity(Article, articleMock);
     }
 
     async function createInitialEntity(Model, data) {

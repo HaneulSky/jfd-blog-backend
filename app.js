@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const config = require("config");
 const chalk = require("chalk");
 const corsMiddleWare = require("./middleware/cors.middleware");
-
 const path = require("path");
 const initDataBase = require("./startUp/initDataBase");
 const app = express();
