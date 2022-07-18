@@ -4,7 +4,6 @@ const config = require("config");
 const chalk = require("chalk");
 const corsMiddleWare = require("./middleware/cors.middleware");
 const path = require("path");
-const initDataBase = require("./startUp/initDataBase");
 const app = express();
 app.use(corsMiddleWare);
 
@@ -34,9 +33,6 @@ if (process.env.NODE_ENV === "production") {
 
 async function start() {
     try {
-        mongoose.connection.once("open", () => {
-            initDataBase();
-        });
         await mongoose.connect(config.get("mongoUri"));
         console.log(chalk.green("MongoDB connected."));
         app.listen(PORT, () => console.log(chalk.green(`Server has been started on port ${PORT} `)));
