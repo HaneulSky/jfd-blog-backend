@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const config = require("config");
 const chalk = require("chalk");
-// const corsMiddleWare = require("./middleware/cors.middleware");
 const cors = require("cors");
 const path = require("path");
 const app = express();
