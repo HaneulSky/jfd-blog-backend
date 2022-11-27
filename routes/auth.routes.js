@@ -1,9 +1,11 @@
 const express = require("express");
+const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const {check, validationResult} = require("express-validator");
-const User = require("../models/User");
 const tokenService = require("../services/token.service");
 const router = express.Router({mergeParams: true});
+
+const signUpValidstion = [check("email", "Некорректный email").isEmail(), check("password", "Минимальная длина пароля 8 символов").isLength({min: 8})];
 
 router.post("/signUp", [
     check("email", "Некорректный email").isEmail(),
